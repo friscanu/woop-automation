@@ -1,0 +1,8 @@
+{
+  "name": "docker-shell-recorder",
+  "version": "1.0.0",
+  "description": "WebSocket server for terminal automation",
+  "dependencies": {
+    "ws": "^8.17.1"
+  }
+}
