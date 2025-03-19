@@ -27,11 +27,11 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 
-COPY docker-shell-recorder.sh /docker-shell-recorder.sh
-RUN chmod +x /docker-shell-recorder.sh
+COPY shell-recorder.sh /shell-recorder.sh
+RUN chmod +x /shell-recorder.sh
 
 RUN mkdir -p /output /output/logs && chmod 777 /output /output/logs
 
 ENV TERM=xterm-256color
 
-CMD ["/docker-shell-recorder.sh"]
+CMD ["/shell-recorder.sh"]
