@@ -1,4 +1,4 @@
-Two environment variables need to be created, ANTHROPIC_API_KEY and ZYPHRA_API_KEY, these are api keys for external LLM's and can easily replaced with others.
+Two environment variables need to be created, ANTHROPIC_API_KEY and ZYPHRA_API_KEY, these are api keys for external LLM's and can be easily replaced with others.
 
 
 start_pipeline.py: can be used to set {command}, {steps} and {duration}, example : cat(command), 3(steps), 30(seconds) and is the start of the pipeline.
