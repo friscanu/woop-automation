@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Title - Woop Learning</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">Woop<span class="logo-accent">Learning</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#news">News</a></li>
+                        <li><a href="training.html" class="nav-active">Training</a></li>
+                        <li><a href="practice.html">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Course Content Section -->
+    <div class="course-container">
+        <!-- Course Sidebar -->
+        <aside class="course-sidebar">
+            <div class="course-info">
+                <h2 id="course-title">Web Development Fundamentals</h2>
+                <div class="course-meta">
+                    <div class="instructor-info">
+                        <img src="/api/placeholder/50/50" alt="Instructor" class="instructor-avatar">
+                        <span id="instructor-name">Sarah Johnson</span>
+                    </div>
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration:</span>
+                            <span id="course-duration">6 hours</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Videos:</span>
+                            <span id="video-count">24</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level:</span>
+                            <span id="course-level">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-list-container">
+                <h3>Course Content</h3>
+                <ul class="video-list" id="video-list">
+                    <!-- Section 1 -->
+                    <li class="section-header">
+                        <div class="section-title">Introduction to HTML</div>
+                        <div class="section-meta">5 videos • 45 min</div>
+                    </li>
+                    <li class="video-item active">
+                        <a href="#" data-video-id="dQw4w9WgXcQ">
+                            <span class="video-number">1</span>
+                            <span class="video-title">Getting Started with HTML</span>
+                            <span class="video-duration">8:25</span>
+                        </a>
+                    </li>
+                    <li class="video-item">
+                        <a href="#" data-video-id="dQw4w9WgXcQ">
+                            <span class="video-number">2</span>
+                            <span class="video-title">HTML Document Structure</span>
+                            <span class="video-duration">10:15</span>
+                        </a>
+                    </li>
+                    <li class="video-item">
+                        <a href="#" data-video-id="dQw4w9WgXcQ">
+                            <span class="video-number">3</span>
+                            <span class="video-title">Working with Text Elements</span>
+                            <span class="video-duration">9:30</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Section 2 -->
+                    <li class="section-header">
+                        <div class="section-title">CSS Styling Basics</div>
+                        <div class="section-meta">6 videos • 55 min</div>
+                    </li>
+                    <li class="video-item">
+                        <a href="#" data-video-id="dQw4w9WgXcQ">
+                            <span class="video-number">6</span>
+                            <span class="video-title">Introduction to CSS</span>
+                            <span class="video-duration">11:20</span>
+                        </a>
+                    </li>
+                    <li class="video-item">
+                        <a href="#" data-video-id="dQw4w9WgXcQ">
+                            <span class="video-number">7</span>
+                            <span class="video-title">Selectors and Properties</span>
+                            <span class="video-duration">12:45</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="course-main">
+            <div class="video-container">
+                <iframe id="video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-info">
+                <h2 id="current-video-title">Getting Started with HTML</h2>
+                <div class="video-meta">
+                    <span id="current-video-number">Video 1</span>
+                    <span id="current-video-duration">8:25</span>
+                </div>
+                <div class="video-controls">
+                    <button id="prev-video" class="video-nav-btn" disabled>Previous</button>
+                    <button id="next-video" class="video-nav-btn">Next Video</button>
+                    <button id="mark-complete" class="video-action-btn">Mark as Complete</button>
+                </div>
+            </div>
+
+            <div class="course-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="resources">Resources</button>
+                    <button class="tab-btn" data-tab="notes">Notes</button>
+                </div>
+                <div class="tab-content active" id="description-tab">
+                    <h3>About this video</h3>
+                    <p>This video covers the basics of HTML and how to set up your first HTML document. You'll learn about the purpose of HTML, how to create an HTML file, and how to view it in a web browser.</p>
+                    
+                    <h3>What you'll learn</h3>
+                    <ul>
+                        <li>The structure of an HTML document</li>
+                        <li>Essential HTML tags for beginners</li>
+                        <li>How to create and save HTML files</li>
+                        <li>Best practices for writing clean HTML code</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="resources-tab">
+                    <h3>Downloadable Resources</h3>
+                    <ul class="resources-list">
+                        <li><a href="#" class="resource-link">HTML Cheat Sheet (PDF)</a></li>
+                        <li><a href="#" class="resource-link">Starter Template Code (ZIP)</a></li>
+                        <li><a href="#" class="resource-link">Practice Exercises</a></li>
+                    </ul>
+
+                    <h3>Additional Links</h3>
+                    <ul class="resources-list">
+                        <li><a href="#" target="_blank" class="resource-link">MDN Web Docs - HTML Basics</a></li>
+                        <li><a href="#" target="_blank" class="resource-link">W3Schools HTML Tutorial</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="notes-tab">
+                    <h3>Your Notes</h3>
+                    <div class="notes-container">
+                        <textarea id="user-notes" placeholder="Add your notes here..."></textarea>
+                        <button id="save-notes" class="btn">Save Notes</button>
+                    </div>
+                    <p class="notes-info">Notes are saved locally on your device and are private to you.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Woop Learning</h3>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FutureLearning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/course.js"></script>
+</body>
+</html>

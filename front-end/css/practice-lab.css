@@ -1,0 +1,453 @@
+/* Practice Lab Styles */
+
+/* Main Layout */
+.lab-container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 0;
+    min-height: calc(100vh - 300px); /* Adjust based on header/footer height */
+    background-color: #f5f5f5;
+}
+
+/* Sidebar Styles */
+.lab-sidebar {
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.lab-info {
+    padding: 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.lab-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.lab-meta {
+    font-size: 0.9rem;
+}
+
+.lab-type {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.lab-tag {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.lab-stats {
+    background-color: #f9f9f9;
+    padding: 0.8rem;
+    border-radius: 4px;
+}
+
+.stat-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-label {
+    font-weight: 500;
+    color: #666;
+}
+
+/* Task List Styles */
+.task-list-container {
+    padding: 1rem;
+}
+
+.task-list-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.task-header {
+    padding: 0.8rem;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.task-number {
+    width: 24px;
+    height: 24px;
+    background-color: #ddd;
+    color: #555;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    margin-right: 0.8rem;
+    font-weight: 500;
+}
+
+.task-title {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.task-status {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    margin-left: 0.5rem;
+}
+
+.task-status.completed {
+    background-color: var(--green);
+    border-color: var(--green);
+    position: relative;
+}
+
+.task-status.completed::after {
+    content: "✓";
+    color: white;
+    font-size: 0.7rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-content {
+    padding: 1rem;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+    display: none;
+}
+
+.task-item.active .task-content {
+    display: block;
+}
+
+.task-item.active .task-header {
+    background-color: #e6f0ff;
+}
+
+.task-item.active .task-number {
+    background-color: var(--blue);
+    color: white;
+}
+
+.task-content p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.task-content ul, .task-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.task-content li {
+    margin-bottom: 0.5rem;
+}
+
+.task-instructions {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.task-instructions h4 {
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+}
+
+code {
+    font-family: "Consolas", "Monaco", monospace;
+    background-color: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    color: #d63384;
+}
+
+pre {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    color: #333;
+}
+
+/* Terminal Styles */
+.terminal-container {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background-color: #333;
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.terminal-title {
+    font-weight: 500;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-btn {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.terminal-btn:hover {
+    background-color: #777;
+}
+
+.terminal {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    font-family: "Consolas", "Monaco", monospace;
+    font-size: 0.9rem;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-output {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.output-line {
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #4CAF50;
+    margin-right: 0.5rem;
+}
+
+.terminal-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: #f0f0f0;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+}
+
+/* Tabs Styles */
+.lab-tabs {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-btn {
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.tab-btn.active {
+    border-bottom-color: var(--blue);
+    color: var(--blue);
+}
+
+.tab-content {
+    padding: 1.5rem;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.tab-content p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.tab-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.hint-section {
+    margin-bottom: 1.5rem;
+}
+
+.hint-section h4 {
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+}
+
+.resource-links {
+    margin-bottom: 1.5rem;
+}
+
+.resource-link {
+    display: block;
+    color: var(--blue);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #eee;
+}
+
+.resource-link:hover {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+/* Notes */
+.notes-container {
+    margin-bottom: 1rem;
+}
+
+#user-notes {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.notes-info {
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .lab-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: white;
+    }
+    
+    .show-sidebar .lab-sidebar {
+        display: block;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 1001;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--blue);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+}

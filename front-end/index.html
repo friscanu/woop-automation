@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woop Learning</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Woop<span class="logo-accent">Learning</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="nav-active">Home</a></li>
+<!--                         <li><a href="#news">News</a></li> -->
+                        <li><a href="pages/training.html">Training</a></li>
+                        <li><a href="pages/practice.html">Practice</a></li>
+                        <li><a href="pages/knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>The World Of Open Possibilities Learning Portal</h1>
+            <p>Experience a straightforward approach to learning with our interactive courses and a supportive community of fellow learners who share your passion for growth. Whether you're a beginner or looking to enhance your skills, our platform offers a variety of free beginner and intermediate content to help you start your journey to becoming an IT expert.</p>
+            <a href="pages/training.html" class="btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section news-section" id="news">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div id="news-cards">
+                <div class="loading">Loading latest news...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Ready to Transform Your Learning Experience?</h2>
+            <p>Join thousands of learners who have already taken their skills to the next level with FutureLearning.</p>
+            <a href="pages/training.html" class="btn">Sign Up Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Woop Learning</h3>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+<!--                        <li><a href="#news">News</a></li> -->
+                        <li><a href="pages/training.html">Training</a></li>
+                        <li><a href="pages/practice.html">Practice</a></li>
+                        <li><a href="pages/knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="pages/blog.html">Blog</a></li>
+                        <li><a href="pages/tutorials.html">Tutorials</a></li>
+                        <li><a href="pages/documentation.html">Documentation</a></li>
+                        <li><a href="pages/community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="pages/terms.html">Terms of Service</a></li>
+                        <li><a href="pages/privacy.html">Privacy Policy</a></li>
+                        <li><a href="pages/cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FutureLearning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/index.js"></script>
+<!-- Mobile Navigation Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the header content and navigation
+    var header = document.querySelector('.header-content');
+    var nav = document.querySelector('header nav');
+    
+    if (!header || !nav) return;
+    
+    // Create toggle button
+    var toggleBtn = document.createElement('button');
+    toggleBtn.innerHTML = '☰';
+    toggleBtn.id = 'mobile-menu-toggle';
+    toggleBtn.style.position = 'absolute';
+    toggleBtn.style.right = '15px';
+    toggleBtn.style.top = '50%';
+    toggleBtn.style.transform = 'translateY(-50%)';
+    toggleBtn.style.background = 'transparent';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.color = 'white';
+    toggleBtn.style.fontSize = '24px';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.style.zIndex = '1000';
+    toggleBtn.style.display = 'none'; // Hide by default, show only on small screens
+    
+    // Add button to header
+    header.style.position = 'relative';
+    header.appendChild(toggleBtn);
+    
+    // Set up responsive styles
+    var responsiveStyle = document.createElement('style');
+    responsiveStyle.textContent = `
+      #mobile-menu-toggle {
+        display: none;
+      }
+      
+      @media (max-width: 768px) {
+        #mobile-menu-toggle {
+          display: block;
+        }
+        
+        header nav {
+          display: none;
+        }
+        
+        header nav.mobile-active {
+          display: block !important;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--dark-blue);
+          z-index: 999;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        header nav ul {
+          flex-direction: column;
+          width: 100%;
+        }
+        
+        header nav ul li {
+          margin: 0;
+          width: 100%;
+        }
+        
+        header nav ul li a {
+          display: block;
+          text-align: center;
+          padding: 12px 0;
+        }
+      }
+    `;
+    document.head.appendChild(responsiveStyle);
+    
+    // Toggle function
+    toggleBtn.addEventListener('click', function() {
+      nav.classList.toggle('mobile-active');
+      this.innerHTML = nav.classList.contains('mobile-active') ? '✕' : '☰';
+    });
+    
+    // Handle window resize
+    function handleResize() {
+      if (window.innerWidth <= 768) {
+        toggleBtn.style.display = 'block';
+        if (!nav.classList.contains('mobile-active')) {
+          nav.style.display = 'none';
+        }
+      } else {
+        toggleBtn.style.display = 'none';
+        nav.style.display = 'flex'; // Assuming the default is flex
+        nav.classList.remove('mobile-active');
+      }
+    }
+    
+    // Run once on load and add resize listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+  });
+</script>
+</body>
+</html>

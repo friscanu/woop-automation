@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Practice Lab - Woop Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="practice-lab.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Woop<span class="logo-accent">Learning</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html" class="nav-active">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Practice Lab Container -->
+    <div class="lab-container">
+        <!-- Lab Sidebar -->
+        <aside class="lab-sidebar">
+            <div class="lab-info">
+                <h2 id="lab-title">Docker Container Workshop</h2>
+                <div class="lab-meta">
+                    <div class="lab-type">
+                        <span class="lab-tag">Intermediate</span>
+                        <span class="lab-tag">Hands-On</span>
+                    </div>
+                    <div class="lab-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Estimated Time:</span>
+                            <span id="lab-duration">90 minutes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Tasks:</span>
+                            <span id="task-count">6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-list-container">
+                <h3>Tasks</h3>
+                <ul class="task-list" id="task-list">
+                    <li class="task-item active" data-task-id="1">
+                        <div class="task-header">
+                            <span class="task-number">1</span>
+                            <span class="task-title">Docker Installation Check</span>
+                            <span class="task-status completed"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Verify that Docker is installed and running correctly:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Use <code>docker --version</code> to check the Docker version</li>
+                                    <li>Use <code>docker info</code> to view system-wide information</li>
+                                    <li>Use <code>docker run hello-world</code> to verify the installation</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="2">
+                        <div class="task-header">
+                            <span class="task-number">2</span>
+                            <span class="task-title">Working with Docker Images</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Learn how to pull, list, and inspect Docker images:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Use <code>docker pull nginx:latest</code> to download the Nginx web server image</li>
+                                    <li>Use <code>docker images</code> to list all downloaded images</li>
+                                    <li>Use <code>docker image inspect nginx:latest</code> to view detailed image information</li>
+                                    <li>Use <code>docker search ubuntu</code> to search for Ubuntu images on Docker Hub</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="3">
+                        <div class="task-header">
+                            <span class="task-number">3</span>
+                            <span class="task-title">Running Docker Containers</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Learn how to run, manage, and interact with containers:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Use <code>docker run -d -p 8080:80 --name my-nginx nginx:latest</code> to start an Nginx container</li>
+                                    <li>Use <code>docker ps</code> to list running containers</li>
+                                    <li>Use <code>curl http://localhost:8080</code> to verify the web server is working</li>
+                                    <li>Use <code>docker logs my-nginx</code> to view container logs</li>
+                                    <li>Use <code>docker exec -it my-nginx bash</code> to access a shell in the container</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="4">
+                        <div class="task-header">
+                            <span class="task-number">4</span>
+                            <span class="task-title">Container Lifecycle Management</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Learn how to stop, start, and remove containers:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Use <code>docker stop my-nginx</code> to stop the running container</li>
+                                    <li>Use <code>docker ps -a</code> to list all containers (including stopped ones)</li>
+                                    <li>Use <code>docker start my-nginx</code> to restart the container</li>
+                                    <li>Use <code>docker restart my-nginx</code> to stop and start in one command</li>
+                                    <li>Use <code>docker rm -f my-nginx</code> to remove the container</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="5">
+                        <div class="task-header">
+                            <span class="task-number">5</span>
+                            <span class="task-title">Creating a Dockerfile</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Learn how to create a custom Docker image using a Dockerfile:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Create a directory: <code>mkdir mydockerapp && cd mydockerapp</code></li>
+                                    <li>Create a file named <code>index.html</code> with the content: <code>echo '<!DOCTYPE html><html><body><h1>My Custom Docker Image</h1></body></html>' > index.html</code></li>
+                                    <li>Create a Dockerfile: <code>echo -e 'FROM nginx:latest\nCOPY index.html /usr/share/nginx/html/index.html' > Dockerfile</code></li>
+                                    <li>Build the image: <code>docker build -t my-custom-nginx .</code></li>
+                                    <li>Run the custom image: <code>docker run -d -p 8081:80 my-custom-nginx</code></li>
+                                    <li>Verify with: <code>curl http://localhost:8081</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="6">
+                        <div class="task-header">
+                            <span class="task-number">6</span>
+                            <span class="task-title">Docker Networking</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Learn how to work with Docker networks:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>List networks: <code>docker network ls</code></li>
+                                    <li>Create a new network: <code>docker network create my-network</code></li>
+                                    <li>Run a container on the network: <code>docker run -d --name web1 --network my-network nginx:latest</code></li>
+                                    <li>Run another container: <code>docker run -d --name web2 --network my-network nginx:latest</code></li>
+                                    <li>Connect to a container and ping the other: <code>docker exec -it web1 bash -c "apt-get update && apt-get install -y iputils-ping && ping web2"</code></li>
+                                    <li>Clean up: <code>docker rm -f web1 web2 && docker network rm my-network</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Lab Area -->
+        <main class="lab-main">
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-title">Docker Workshop Terminal</div>
+                    <div class="terminal-controls">
+                        <button id="reset-terminal" class="terminal-btn">Reset Terminal</button>
+                        <button id="fullscreen-terminal" class="terminal-btn">Fullscreen</button>
+                    </div>
+                </div>
+                <div class="terminal" id="terminal">
+                    <div class="terminal-output">
+                        <div class="output-line">Welcome to the Docker Container Workshop!</div>
+                        <div class="output-line">This terminal is pre-configured with Docker installed.</div>
+                        <div class="output-line">Type commands below to complete the tasks.</div>
+                        <div class="output-line">user@docker:~$ </div>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="prompt">user@docker:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autofocus>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="instructions">Instructions</button>
+                    <button class="tab-btn" data-tab="hints">Hints</button>
+                    <button class="tab-btn" data-tab="resources">Resources</button>
+                    <button class="tab-btn" data-tab="notes">Notes</button>
+                </div>
+                <div class="tab-content active" id="instructions-tab">
+                    <h3>Lab Instructions</h3>
+                    <p>This workshop will teach you how to work with Docker containers, a popular technology for application deployment and management. You'll learn to create, manage, and network containers using Docker commands.</p>
+                    
+                    <h4>Getting Started</h4>
+                    <ol>
+                        <li>Work through the tasks in order, using the Docker terminal to the right.</li>
+                        <li>Each task builds on the previous one, demonstrating different aspects of Docker.</li>
+                        <li>The terminal is pre-configured with Docker and all necessary tools installed.</li>
+                        <li>Use the tabs below for additional information and resources.</li>
+                    </ol>
+                    
+                    <h4>Completion Requirements</h4>
+                    <p>To successfully complete this lab, you must finish all 6 tasks. Each task will be marked as complete when you've successfully executed the required Docker commands.</p>
+                    
+                    <h4>Important Note</h4>
+                    <p>Remember to clean up containers and networks after you're done with them to avoid resource conflicts. The commands for cleanup are provided in the task instructions.</p>
+                </div>
+                <div class="tab-content" id="hints-tab">
+                    <h3>Helpful Hints</h3>
+                    <div class="hint-section">
+                        <h4>Container Basics</h4>
+                        <ul>
+                            <li>A container is a lightweight, standalone, executable package that includes everything needed to run an application</li>
+                            <li>Unlike VMs, containers share the host OS kernel but have isolated file systems</li>
+                            <li>The <code>-d</code> flag runs containers in detached mode (background)</li>
+                            <li>The <code>-p</code> flag maps host ports to container ports (e.g., <code>-p 8080:80</code>)</li>
+                        </ul>
+                    </div>
+                    <div class="hint-section">
+                        <h4>Dockerfile Tips</h4>
+                        <ul>
+                            <li>Each instruction in a Dockerfile creates a new layer in the image</li>
+                            <li>Use <code>FROM</code> to specify the base image</li>
+                            <li>Use <code>COPY</code> to add files from your host to the image</li>
+                            <li>Use <code>RUN</code> to execute commands during the build</li>
+                            <li>Use <code>CMD</code> to specify the command to run when the container starts</li>
+                        </ul>
+                    </div>
+                    <div class="hint-section">
+                        <h4>Common Commands</h4>
+                        <ul>
+                            <li>Use <code>docker ps -a</code> to show all containers (including stopped ones)</li>
+                            <li>Use <code>docker rm $(docker ps -aq)</code> to remove all containers</li>
+                            <li>Use <code>docker rmi $(docker images -q)</code> to remove all images</li>
+                            <li>Use <code>docker exec -it [container] [command]</code> to run commands in a running container</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content" id="resources-tab">
+                    <h3>Additional Resources</h3>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link">Docker Command Cheat Sheet (PDF)</a>
+                        <a href="#" class="resource-link">Docker Compose Guide</a>
+                        <a href="#" class="resource-link">Dockerfile Best Practices</a>
+                    </div>
+                    
+                    <h4>Official Documentation</h4>
+                    <ul>
+                        <li><a href="#" class="resource-link">Docker Documentation</a></li>
+                        <li><a href="#" class="resource-link">Docker Hub</a></li>
+                        <li><a href="#" class="resource-link">Docker Networking Guide</a></li>
+                    </ul>
+                    
+                    <h4>Recommended Reading</h4>
+                    <ul>
+                        <li>"Docker: Up & Running" by Sean P. Kane and Karl Matthias</li>
+                        <li>"Docker Deep Dive" by Nigel Poulton</li>
+                        <li>"Docker in Practice" by Ian Miell and Aidan Hobson Sayers</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="notes-tab">
+                    <h3>Your Notes</h3>
+                    <div class="notes-container">
+                        <textarea id="user-notes" placeholder="Add your notes here..."></textarea>
+                        <button id="save-notes" class="btn">Save Notes</button>
+                    </div>
+                    <p class="notes-info">Notes are saved locally on your device and are private to you.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Woop Learning</h3>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FutureLearning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="practice-lab.js"></script>
+</body>
+</html>

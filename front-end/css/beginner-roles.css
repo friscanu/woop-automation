@@ -1,0 +1,102 @@
+/* Additional styles for role-specific pages */
+.roles-submenu {
+    background-color: #f5f5f5;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.roles-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.role-link {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: white;
+    color: var(--dark-blue);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.role-link:hover {
+    background-color: #e9f5ff;
+    border-color: var(--blue);
+}
+
+.role-link.active {
+    background-color: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+
+.role-description {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.role-description h2 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.role-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.role-nav-link {
+    flex: 1;
+    min-width: 180px;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    color: var(--dark-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.role-nav-link:hover {
+    background-color: #e9f5ff;
+    border-color: var(--blue);
+    transform: translateY(-2px);
+}
+
+.role-nav-link.active {
+    background-color: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.2rem 0 1.5rem 0;
+}
+
+.skill-tag {
+    background-color: #e9f5ff;
+    color: var(--blue);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}

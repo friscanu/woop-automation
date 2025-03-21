@@ -1,0 +1,392 @@
+/* Course Page Specific Styles */
+
+/* Layout */
+.course-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+    min-height: calc(100vh - 300px); /* Adjust based on header/footer height */
+}
+
+/* Sidebar Styles */
+.course-sidebar {
+    background-color: #f5f5f5;
+    border-right: 1px solid #e0e0e0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.course-info {
+    padding: 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.course-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.course-meta {
+    font-size: 0.9rem;
+}
+
+.instructor-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.instructor-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+}
+
+.instructor-name {
+    font-weight: 500;
+    color: #555;
+}
+
+.course-stats {
+    background-color: #f9f9f9;
+    padding: 0.8rem;
+    border-radius: 4px;
+}
+
+.stat-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-label {
+    font-weight: 500;
+    color: #666;
+}
+
+/* Video List */
+.video-list-container {
+    padding: 1.5rem;
+}
+
+.video-list-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section-header {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    margin-top: 1rem;
+}
+
+.section-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.section-meta {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.3rem;
+}
+
+.video-item {
+    border-bottom: 1px solid #eee;
+}
+
+.video-item a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0.5rem;
+    text-decoration: none;
+    color: #444;
+    transition: all 0.2s ease;
+}
+
+.video-item a:hover {
+    background-color: #f0f0f0;
+}
+
+.video-item.active a {
+    background-color: rgba(66, 133, 244, 0.1);
+    color: var(--blue);
+    font-weight: 500;
+    border-left: 3px solid var(--blue);
+    padding-left: calc(0.5rem - 3px);
+}
+
+.video-number {
+    width: 24px;
+    height: 24px;
+    background-color: #ddd;
+    color: #555;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    margin-right: 0.8rem;
+}
+
+.video-item.active .video-number {
+    background-color: var(--blue);
+    color: white;
+}
+
+.video-title {
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+.video-duration {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Main Content Area */
+.course-main {
+    padding: 1.5rem;
+    background-color: white;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    margin-bottom: 2rem;
+}
+
+.video-info h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-blue);
+}
+
+.video-meta {
+    display: flex;
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.video-meta span:not(:last-child)::after {
+    content: "•";
+    margin: 0 0.5rem;
+}
+
+.video-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.video-nav-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.video-nav-btn:hover:not([disabled]) {
+    background-color: #e0e0e0;
+}
+
+.video-nav-btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.video-action-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.video-action-btn:hover {
+    background-color: #2d8f45;
+}
+
+/* Tabs */
+.course-tabs {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-btn {
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.tab-btn.active {
+    border-bottom-color: var(--blue);
+    color: var(--blue);
+}
+
+.tab-content {
+    padding: 1.5rem;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.tab-content p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.tab-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Resources */
+.resources-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-list li {
+    margin-bottom: 0.8rem;
+}
+
+.resource-link {
+    display: inline-block;
+    color: var(--blue);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+/* Notes */
+.notes-container {
+    margin-bottom: 1rem;
+}
+
+#user-notes {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.notes-info {
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .course-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: white;
+    }
+    
+    .show-sidebar .course-sidebar {
+        display: block;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 1001;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--blue);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+}

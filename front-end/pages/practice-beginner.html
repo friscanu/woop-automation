@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Practice Lab - Woop Learning</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/practice-lab.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">Woop<span class="logo-accent">Learning</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html" class="nav-active">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Practice Lab Container -->
+    <div class="lab-container">
+        <!-- Lab Sidebar -->
+        <aside class="lab-sidebar">
+            <div class="lab-info">
+                <h2 id="lab-title">Linux Command Line Basics</h2>
+                <div class="lab-meta">
+                    <div class="lab-type">
+                        <span class="lab-tag">Beginner</span>
+                        <span class="lab-tag">Hands-On</span>
+                    </div>
+                    <div class="lab-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Estimated Time:</span>
+                            <span id="lab-duration">45 minutes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Tasks:</span>
+                            <span id="task-count">5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-list-container">
+                <h3>Tasks</h3>
+                <ul class="task-list" id="task-list">
+                    <li class="task-item active" data-task-id="1">
+                        <div class="task-header">
+                            <span class="task-number">1</span>
+                            <span class="task-title">Navigating the File System</span>
+                            <span class="task-status completed"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Learn how to navigate through the Linux file system using the following commands:</p>
+                            <ul>
+                                <li><code>pwd</code> - Print working directory</li>
+                                <li><code>ls</code> - List directory contents</li>
+                                <li><code>cd</code> - Change directory</li>
+                            </ul>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Use <code>pwd</code> to see your current directory</li>
+                                    <li>Use <code>ls</code> to list files in the current directory</li>
+                                    <li>Use <code>cd /tmp</code> to change to the temporary directory</li>
+                                    <li>Use <code>ls -la</code> to show all files including hidden ones</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- More task items would go here -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Lab Area -->
+        <main class="lab-main">
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-title">Linux Terminal</div>
+                    <div class="terminal-controls">
+                        <button id="reset-terminal" class="terminal-btn">Reset Terminal</button>
+                        <button id="fullscreen-terminal" class="terminal-btn">Fullscreen</button>
+                    </div>
+                </div>
+                <div class="terminal" id="terminal">
+                    <div class="terminal-output">
+                        <div class="output-line">Welcome to the Linux Basics Lab!</div>
+                        <div class="output-line">Type commands below to complete the tasks.</div>
+                        <div class="output-line">user@linux:~$ </div>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="prompt">user@linux:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autofocus>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="instructions">Instructions</button>
+                    <button class="tab-btn" data-tab="hints">Hints</button>
+                    <button class="tab-btn" data-tab="resources">Resources</button>
+                    <button class="tab-btn" data-tab="notes">Notes</button>
+                </div>
+                <div class="tab-content active" id="instructions-tab">
+                    <h3>Lab Instructions</h3>
+                    <p>This lab will help you practice essential Linux commands that every IT professional should know. Each task focuses on a different aspect of the Linux command line interface.</p>
+                    
+                    <h4>Getting Started</h4>
+                    <ol>
+                        <li>Work through the tasks in order, using the Linux terminal to the right.</li>
+                        <li>Read each task description carefully before attempting the commands.</li>
+                        <li>Use the hints tab if you get stuck on a particular command.</li>
+                        <li>Use the notes tab to keep track of important commands or concepts.</li>
+                    </ol>
+                    
+                    <h4>Completion Requirements</h4>
+                    <p>To successfully complete this lab, you must finish all 5 tasks. Each task will be marked as complete when you've successfully executed the required commands.</p>
+                </div>
+                <!-- Other tab contents would go here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Woop Learning</h3>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FutureLearning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/practice-lab.js"></script>
+</body>
+</html>

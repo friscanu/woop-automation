@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Practice Lab - Woop Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="practice-lab.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Woop<span class="logo-accent">Learning</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html" class="nav-active">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Practice Lab Container -->
+    <div class="lab-container">
+        <!-- Lab Sidebar -->
+        <aside class="lab-sidebar">
+            <div class="lab-info">
+                <h2 id="lab-title">Kubernetes Cluster Management</h2>
+                <div class="lab-meta">
+                    <div class="lab-type">
+                        <span class="lab-tag">Expert</span>
+                        <span class="lab-tag">Hands-On</span>
+                    </div>
+                    <div class="lab-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Estimated Time:</span>
+                            <span id="lab-duration">120 minutes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Tasks:</span>
+                            <span id="task-count">7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-list-container">
+                <h3>Tasks</h3>
+                <ul class="task-list" id="task-list">
+                    <li class="task-item active" data-task-id="1">
+                        <div class="task-header">
+                            <span class="task-number">1</span>
+                            <span class="task-title">Cluster Configuration</span>
+                            <span class="task-status completed"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Verify and explore your Kubernetes cluster configuration:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Check Kubernetes version: <code>kubectl version --short</code></li>
+                                    <li>View cluster information: <code>kubectl cluster-info</code></li>
+                                    <li>List nodes in the cluster: <code>kubectl get nodes -o wide</code></li>
+                                    <li>Check system Pods: <code>kubectl get pods -n kube-system</code></li>
+                                    <li>Check available namespaces: <code>kubectl get namespaces</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="2">
+                        <div class="task-header">
+                            <span class="task-number">2</span>
+                            <span class="task-title">Deploying Applications</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Deploy a sample application with different resources:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Create a namespace: <code>kubectl create namespace practice-app</code></li>
+                                    <li>Deploy Nginx: <code>kubectl create deployment nginx --image=nginx:latest -n practice-app</code></li>
+                                    <li>Scale deployment: <code>kubectl scale deployment nginx --replicas=3 -n practice-app</code></li>
+                                    <li>Expose deployment: <code>kubectl expose deployment nginx --port=80 --type=NodePort -n practice-app</code></li>
+                                    <li>Check deployment status: <code>kubectl get deployments,pods,services -n practice-app</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="3">
+                        <div class="task-header">
+                            <span class="task-number">3</span>
+                            <span class="task-title">Declarative Configuration</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Use YAML manifests for Kubernetes resources:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Create a deployment YAML file:
+                                        <pre><code>cat << EOF > deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: practice-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:latest
+        ports:
+        - containerPort: 6379
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
+EOF</code></pre>
+                                    </li>
+                                    <li>Apply the configuration: <code>kubectl apply -f deployment.yaml</code></li>
+                                    <li>View the deployment: <code>kubectl get pods -l app=redis -n practice-app</code></li>
+                                    <li>Display YAML of running deployment: <code>kubectl get deployment redis -n practice-app -o yaml</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="4">
+                        <div class="task-header">
+                            <span class="task-number">4</span>
+                            <span class="task-title">Advanced Networking</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Configure Kubernetes networking features:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Create a service file:
+                                        <pre><code>cat << EOF > service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: practice-app
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+  type: ClusterIP
+EOF</code></pre>
+                                    </li>
+                                    <li>Apply the service: <code>kubectl apply -f service.yaml</code></li>
+                                    <li>Create a NetworkPolicy:
+                                        <pre><code>cat << EOF > network-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: redis-policy
+  namespace: practice-app
+spec:
+  podSelector:
+    matchLabels:
+      app: redis
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          access: redis
+    ports:
+    - protocol: TCP
+      port: 6379
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: kube-system
+EOF</code></pre>
+                                    </li>
+                                    <li>Apply the NetworkPolicy: <code>kubectl apply -f network-policy.yaml</code></li>
+                                    <li>List network policies: <code>kubectl get networkpolicies -n practice-app</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="5">
+                        <div class="task-header">
+                            <span class="task-number">5</span>
+                            <span class="task-title">Storage Configuration</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Work with Kubernetes storage resources:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Create a PersistentVolume:
+                                        <pre><code>cat << EOF > pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: practice-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /tmp/k8s-data
+EOF</code></pre>
+                                    </li>
+                                    <li>Apply the PV: <code>kubectl apply -f pv.yaml</code></li>
+                                    <li>Create a PersistentVolumeClaim:
+                                        <pre><code>cat << EOF > pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: practice-pvc
+  namespace: practice-app
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+EOF</code></pre>
+                                    </li>
+                                    <li>Apply the PVC: <code>kubectl apply -f pvc.yaml</code></li>
+                                    <li>Check storage resources: <code>kubectl get pv,pvc -n practice-app</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="6">
+                        <div class="task-header">
+                            <span class="task-number">6</span>
+                            <span class="task-title">ConfigMaps and Secrets</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Manage application configuration and sensitive data:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Create a ConfigMap:
+                                        <pre><code>kubectl create configmap redis-config -n practice-app --from-literal=redis-config="maxmemory 256mb" --from-literal=redis-mode="standalone"</code></pre>
+                                    </li>
+                                    <li>Create a Secret:
+                                        <pre><code>kubectl create secret generic redis-secret -n practice-app --from-literal=redis-password="password123"</code></pre>
+                                    </li>
+                                    <li>View the ConfigMap: <code>kubectl get configmap redis-config -n practice-app -o yaml</code></li>
+                                    <li>View the Secret (encoded): <code>kubectl get secret redis-secret -n practice-app -o yaml</code></li>
+                                    <li>Update the Redis deployment to use the ConfigMap and Secret:
+                                        <pre><code>cat << EOF > redis-updated.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-config
+  namespace: practice-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-config
+  template:
+    metadata:
+      labels:
+        app: redis-config
+    spec:
+      containers:
+      - name: redis
+        image: redis:latest
+        env:
+        - name: REDIS_CONFIG
+          valueFrom:
+            configMapKeyRef:
+              name: redis-config
+              key: redis-config
+        - name: REDIS_MODE
+          valueFrom:
+            configMapKeyRef:
+              name: redis-config
+              key: redis-mode
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret
+              key: redis-password
+EOF</code></pre>
+                                    </li>
+                                    <li>Apply the updated deployment: <code>kubectl apply -f redis-updated.yaml</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="7">
+                        <div class="task-header">
+                            <span class="task-number">7</span>
+                            <span class="task-title">Monitoring and Troubleshooting</span>
+                            <span class="task-status"></span>
+                        </div>
+                        <div class="task-content">
+                            <p>Practice advanced troubleshooting techniques:</p>
+                            <div class="task-instructions">
+                                <h4>Try the following:</h4>
+                                <ol>
+                                    <li>Check Pod logs: <code>kubectl logs -l app=redis-config -n practice-app</code></li>
+                                    <li>Describe a Pod: <code>kubectl describe pod -l app=redis-config -n practice-app</code></li>
+                                    <li>Check events: <code>kubectl get events -n practice-app --sort-by='.lastTimestamp'</code></li>
+                                    <li>Access a Pod shell: <code>kubectl exec -it $(kubectl get pod -l app=redis-config -n practice-app -o jsonpath='{.items[0].metadata.name}') -n practice-app -- bash</code></li>
+                                    <li>Check Pod resource usage: <code>kubectl top pods -n practice-app</code></li>
+                                    <li>Check Node resource usage: <code>kubectl top nodes</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Lab Area -->
+        <main class="lab-main">
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-title">Kubernetes Lab Terminal</div>
+                    <div class="terminal-controls">
+                        <button id="reset-terminal" class="terminal-btn">Reset Terminal</button>
+                        <button id="fullscreen-terminal" class="terminal-btn">Fullscreen</button>
+                    </div>
+                </div>
+                <div class="terminal" id="terminal">
+                    <div class="terminal-output">
+                        <div class="output-line">Welcome to the Kubernetes Cluster Management Lab!</div>
+                        <div class="output-line">This terminal is pre-configured with kubectl and a running Kubernetes cluster.</div>
+                        <div class="output-line">Type commands below to complete the tasks.</div>
+                        <div class="output-line">admin@k8s-master:~$ </div>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="prompt">admin@k8s-master:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autofocus>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="instructions">Instructions</button>
+                    <button class="tab-btn" data-tab="hints">Hints</button>
+                    <button class="tab-btn" data-tab="resources">Resources</button>
+                    <button class="tab-btn" data-tab="notes">Notes</button>
+                </div>
+                <div class="tab-content active" id="instructions-tab">
+                    <h3>Lab Instructions</h3>
+                    <p>This advanced lab focuses on Kubernetes cluster management and architecture. You'll work with a pre-configured Kubernetes cluster to deploy, manage, and troubleshoot applications using various Kubernetes resources.</p>
+                    
+                    <h4>Getting Started</h4>
+                    <ol>
+                        <li>Work through the tasks in order, using the Kubernetes terminal to the right.</li>
+                        <li>Each task builds on previous ones, so it's important to complete them in sequence.</li>
+                        <li>The YAML manifests in the tasks can be created using the provided commands.</li>
+                        <li>All resources should be created in the <code>practice-app</code> namespace.</li>
+                    </ol>
+                    
+                    <h4>Completion Requirements</h4>
+                    <p>To successfully complete this lab, you must finish all 7 tasks. Each task will be marked as complete when you've successfully executed the required commands and verified the results.</p>
+                    
+                    <h4>Lab Environment</h4>
+                    <p>This lab provides a 3-node Kubernetes cluster (1 master, 2 worker nodes) with standard components installed. The kubectl command is pre-configured to connect to this cluster.</p>
+                </div>
+                <div class="tab-content" id="hints-tab">
+                    <h3>Helpful Hints</h3>
+                    <div class="hint-section">
+                        <h4>Kubernetes Architecture</h4>
+                        <ul>
+                            <li>The control plane components (API server, scheduler, controller manager, etcd) run on the master node</li>
+                            <li>Worker nodes run the kubelet, kube-proxy, and container runtime</li>
+                            <li>The <code>kube-system</code> namespace contains all the system components</li>
+                        </ul>
+                    </div>
+                    <div class="hint-section">
+                        <h4>YAML Manifests</h4>
+                        <ul>
+                            <li>Indentation in YAML files is significant - use spaces, not tabs</li>
+                            <li>Use <code>kubectl explain [resource]</code> to get documentation on fields</li>
+                            <li>Use <code>--dry-run=client -o yaml</code> to generate YAML templates</li>
+                            <li>Always validate manifests with <code>kubectl apply --validate=true --dry-run=client -f [file]</code></li>
+                        </ul>
+                    </div>
+                    <div class="hint-section">
+                        <h4>Troubleshooting Tips</h4>
+                        <ul>
+                            <li>Always check Pod status with <code>kubectl get pods</code> and inspect with <code>kubectl describe pod</code></li>
+                            <li>Check container logs with <code>kubectl logs</code></li>
+                            <li>For networking issues, check Services, Endpoints, and NetworkPolicies</li>
+                            <li>For persistent storage issues, check PVs and PVCs status</li>
+                            <li>Use <code>kubectl get events --sort-by='.lastTimestamp'</code> to see recent events</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content" id="resources-tab">
+                    <h3>Additional Resources</h3>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link">Kubernetes Command Cheat Sheet (PDF)</a>
+                        <a href="#" class="resource-link">YAML for Kubernetes Reference</a>
+                        <a href="#" class="resource-link">Kubernetes Architecture Diagram</a>
+                    </div>
+                    
+                    <h4>Official Documentation</h4>
+                    <ul>
+                        <li><a href="#" class="resource-link">Kubernetes Documentation</a></li>
+                        <li><a href="#" class="resource-link">kubectl Command Reference</a></li>
+                        <li><a href="#" class="resource-link">Kubernetes API Reference</a></li>
+                    </ul>
+                    
+                    <h4>Recommended Reading</h4>
+                    <ul>
+                        <li>"Kubernetes: Up and Running" by Brendan Burns, Joe Beda, and Kelsey Hightower</li>
+                        <li>"Kubernetes in Action" by Marko Lukša</li>
+                        <li>"Kubernetes Patterns" by Bilgin Ibryam and Roland Huß</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="notes-tab">
+                    <h3>Your Notes</h3>
+                    <div class="notes-container">
+                        <textarea id="user-notes" placeholder="Add your notes here..."></textarea>
+                        <button id="save-notes" class="btn">Save Notes</button>
+                    </div>
+                    <p class="notes-info">Notes are saved locally on your device and are private to you.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Woop Learning</h3>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#news">News</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="practice.html">Practice</a></li>
+                        <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FutureLearning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="practice-lab.js"></script>
+</body>
+</html>
