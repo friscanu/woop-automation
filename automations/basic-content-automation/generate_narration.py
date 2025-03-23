@@ -1,4 +1,4 @@
-import anthropic
+import ollama
 import json
 import os
 import argparse
@@ -8,12 +8,6 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Anthropic client
-api_key = os.environ.get('ANTHROPIC_API_KEY')
-if not api_key:
-    raise ValueError("ANTHROPIC_API_KEY not set")
-client = anthropic.Anthropic(api_key=api_key)
-
 def generate_narration(command, steps, duration):
     prompt = f"""
     Create a friendly, engaging narration explaining the Unix command "{command}" in exactly {steps} steps. 
@@ -21,32 +15,26 @@ def generate_narration(command, steps, duration):
 
     For each step, use this EXACT format (including headers and bold keys):
     ## Step 1
-    **title**: "Main tutorial title"
-    **step_title**: "Step-specific title"
-    **step_command_terminal**: "command1" : "command2"
-    **narration_text**: "Engaging explanation with 'command1' and 'command2'."
-    **step_duration**: Duration in seconds for this step
+    **title**: "Main tutorial title"(should be the same for all steps)
+    **step_title**: "Step-specific title"(should be descriptive of the step)
+    **step_command_terminal**: contains variations of "{command}" (for example "cat filename.txt" : "cat filename1.txt filename2.txt") AND shound not contain only {command}.
+    **narration_text**: "Engaging explanation for the command "{command}"
+    **step_duration**: Duration in seconds for the narration for this step (e.g. 10)
 
-    Focus only on "{command}" and its options. Example steps:
-    - Step 1: Basic usage
-    - Step 2: Common options
-    - Step 3: Advanced techniques
-    - Step 4: Additional features
-
-    Ensure each step has all required fields AND THAT narration_text contains the FULL commands pasted in step_command_terminal. Do not deviate from the format.
+    Ensure each step has all required fields AND THAT narration_text contains the FULL commands pasted in step_command_terminal without a refercence on how long the stap takes
+    Do not deviate from the format or the initial command.
     """
     try:
-        response = client.messages.create(
-            model="claude-3-7-sonnet-20250219",
-            max_tokens=2000,
-            temperature=0.8,
-            messages=[{"role": "user", "content": prompt}]
+        print("Generating response with gemma3:4b...")
+        response = ollama.generate(
+            model="gemma3:4b",
+            prompt=prompt
         )
-        raw_text = response.content[0].text
-        logger.info(f"Raw response from Claude:\n{raw_text}")
+        raw_text = response['response']
+        logger.info(f"Raw response from Ollama:\n{raw_text}")
         return raw_text
     except Exception as e:
-        logger.error(f"Claude API error: {str(e)}")
+        logger.error(f"Ollama API error: {str(e)}")
         raise
 
 def parse_to_json(raw_text, command):
@@ -74,19 +62,19 @@ def parse_to_json(raw_text, command):
     
     # Fallback if no steps are parsed
     if not steps:
-        logger.warning("No steps parsed from Claude response. Using fallback step.")
+        logger.warning("No steps parsed from Ollama response. Using fallback step.")
         steps.append({
-            "title": f"Learn {command}",
+            "title": f"Exploring the {command} Command",
             "step_title": f"Basic {command} Usage",
-            "step_command_terminal": [f"{command}"],
-            "narration_text": f"Welcome! Let's learn the '{command}' command. Type '{command}' to see it in action!",
-            "step_duration": 30
+            "step_command_terminal": [f"{command} file.txt"],
+            "narration_text": f"Welcome! Let’s dive into '{command} file.txt'—a simple way to use the '{command}' command!",
+            "step_duration": 15
         })
     
     return {"command": command, "steps": steps, "total_duration": sum(step["step_duration"] for step in steps)}
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate tutorial narration")
+    parser = argparse.ArgumentParser(description="Generate tutorial narration with Ollama")
     parser.add_argument("--command", required=True, help="Unix command to explain")
     parser.add_argument("--steps", type=int, required=True, help="Number of steps")
     parser.add_argument("--duration", type=int, required=True, help="Total duration in seconds")
